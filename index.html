@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Caso de Uso</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>Formulario - Caso de Uso</h1>
+
+  <form>
+    <label>Nombre del caso de uso</label>
+    <input type="text" placeholder="Ejemplo: Iniciar sesión">
+
+    <label>Actor principal</label>
+    <input type="text" placeholder="Ejemplo: Usuario registrado">
+
+    <label>Descripción</label>
+    <textarea rows="3" placeholder="Explicación general del caso..."></textarea>
+
+    <label>Precondiciones</label>
+    <textarea rows="2" placeholder="Requisitos antes de ejecutar el caso de uso..."></textarea>
+
+    <label>Flujo principal</label>
+    <textarea rows="5" placeholder="1. El usuario accede al formulario..."></textarea>
+
+    <label>Flujos alternativos</label>
+    <textarea rows="4" placeholder="Qué pasa si algo falla o cambia el flujo normal..."></textarea>
+
+    <label>Postcondiciones</label>
+    <textarea rows="2" placeholder="Resultados esperados después..."></textarea>
+
+    <label>Requisitos especiales</label>
+    <textarea rows="2" placeholder="Ejemplo: debe ejecutarse en menos de 2 segundos..."></textarea>
+
+    <label>Fecha de creación</label>
+    <input type="date">
+
+    <label>Autor</label>
+    <input type="text" placeholder="Tu nombre completo">
+
+    <button type="button" id="btnImprimir">Imprimir o Guardar como PDF</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
