@@ -1,35 +1,31 @@
-document.getElementById("btnImprimir").addEventListener("click", function () {
+document.getElementById("btnPDF").addEventListener("click", () => {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
 
-  const elementoPDF = document.createElement("div");
+  let y = 20; // posición inicial en el PDF
 
-  
-  const titulo = document.createElement("h2");
-  titulo.textContent = "Formulario - Caso de Uso";
-  titulo.style.textAlign = "center";
-  titulo.style.color = "#c0392b";
+  doc.setFontSize(18);
+  doc.text("Formulario - Caso de Uso", 105, y, { align: "center" });
+  y += 10;
 
-  const fecha = document.createElement("p");
-  fecha.textContent = "Fecha: " + new Date().toLocaleDateString();
-  fecha.style.textAlign = "center";
-  fecha.style.marginBottom = "20px";
-  
-  const formularioClonado = document.getElementById("formCasoUso").cloneNode(true);
-  formularioClonado.style.width = "100%";
+  doc.setFontSize(12);
 
+  const form = document.getElementById("formCasoUso");
+  const datos = new FormData(form);
 
-  elementoPDF.appendChild(titulo);
-  elementoPDF.appendChild(fecha);
-  elementoPDF.appendChild(formularioClonado);
+  datos.forEach((valor, campo) => {
+    doc.setFont("helvetica", "bold");
+    doc.text(campo.charAt(0).toUpperCase() + campo.slice(1) + ":", 10, y);
+    doc.setFont("helvetica", "normal");
+    doc.text(valor || "-", 60, y);
+    y += 8;
 
+    // Salto de página si llega al final
+    if (y > 280) {
+      doc.addPage();
+      y = 20;
+    }
+  });
 
-  const opciones = {
-    margin: 10,
-    filename: "caso_de_uso.pdf",
-    image: { type: "jpeg", quality: 1 },
-    html2canvas: { scale: 3, useCORS: true },
-    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
-  };
-
-  html2pdf().set(opciones).from(elementoPDF).save();
+  doc.save("caso_de_uso.pdf");
 });
-
