@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <title>Caso de Uso</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Librería html2pdf -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
 
   <h1>Formulario - Caso de Uso</h1>
 
-  <form>
+  <form id="formCasoUso">
     <label>Nombre del caso de uso</label>
     <input type="text" placeholder="Ejemplo: Iniciar sesión">
 
@@ -40,9 +43,8 @@
     <label>Autor</label>
     <input type="text" placeholder="Tu nombre completo">
 
-    <button type="button" id="btnImprimir">Imprimir o Guardar como PDF</button>
+    <button type="button" id="btnImprimir">Descargar PDF</button>
   </form>
 
-  <script src="script.js"></script>
 </body>
 </html>
